@@ -1,13 +1,14 @@
-FROM node:16-alpine
+FROM node:14-alpine
+
+USER node
 
 WORKDIR /usr/src/app
 
-COPY ./front/package*.json ./
+COPY --chown=node ./front/package*.json ./
 
-RUN npm install yarn
-RUN yarn
+RUN yarn instal
 
-COPY ./front .
+COPY --chown=node ./front .
 
 EXPOSE 3000
 CMD [ "yarn", "start" ]
