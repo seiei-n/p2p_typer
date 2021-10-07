@@ -1,0 +1,27 @@
+version: "3"
+services:
+  front:
+    build:
+      context: .
+      dockerfile: ./docker/react/Dockerfile.development
+    container_name: p2p_typer_front
+    environment:
+      - NODE_ENV=development
+    tty: true
+    volumes:
+      - ./front:/usr/src/app
+    ports:
+      - 3000:3000
+
+  api:
+    build:
+      context: .
+      dockerfile: ./docker/nodejs/Dockerfile.development
+    container_name: p2p_typer_api
+    environment:
+      - NODE_ENV=development
+    tty: true
+    volumes:
+      - ./api:/usr/src/app
+    ports:
+      - 8000:8000
