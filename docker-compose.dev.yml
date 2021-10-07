@@ -10,6 +10,7 @@ services:
     tty: true
     volumes:
       - ./front:/usr/src/app
+      - ./front/node_modules:/usr/src/app/node_modules
     ports:
       - 3000:3000
 
@@ -23,5 +24,6 @@ services:
     tty: true
     volumes:
       - ./api:/usr/src/app
+      - ./api/node_modules:/usr/src/app/node_modules
     ports:
       - 8000:8000
